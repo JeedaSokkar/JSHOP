@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="JSHOP.PL/JSHOP.PL.csproj" />
+  <Project Path="../../../../../../OneDrive/Desktop/Api/JSHOP/JSHOP.BLL/JSHOP.BLL.csproj" />
+  <Project Path="../../../../../../OneDrive/Desktop/Api/JSHOP/JSHOP.DAL/JSHOP.DAL.csproj" />
+  <Project Path="../../../../../../OneDrive/Desktop/Api/JSHOP/JSHOP.PL/JSHOP.PL.csproj" />
 </Solution>

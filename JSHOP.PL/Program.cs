@@ -1,4 +1,7 @@
 
+using JSHOP.DAL;
+using Microsoft.EntityFrameworkCore;
+
 namespace JSHOP.PL
 {
     public class Program
@@ -8,7 +11,10 @@ namespace JSHOP.PL
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddDbContext <ApplicationDbContexet>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
