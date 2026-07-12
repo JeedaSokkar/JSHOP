@@ -1,0 +1,15 @@
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\bin\Debug\net9.0\JSHOP.DAL.deps.json
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\bin\Debug\net9.0\JSHOP.DAL.runtimeconfig.json
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\bin\Debug\net9.0\JSHOP.DAL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\bin\Debug\net9.0\JSHOP.DAL.pdb
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.csproj.AssemblyReference.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.AssemblyInfoInputs.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.AssemblyInfo.cs
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.csproj.CoreCompileInputs.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.sourcelink.json
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\refint\JSHOP.DAL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.pdb
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.genruntimeconfig.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\ref\JSHOP.DAL.dll

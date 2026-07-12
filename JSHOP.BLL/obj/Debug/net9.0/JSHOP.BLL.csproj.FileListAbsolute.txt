@@ -1,0 +1,16 @@
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\bin\Debug\net9.0\JSHOP.BLL.deps.json
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\bin\Debug\net9.0\JSHOP.BLL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\bin\Debug\net9.0\JSHOP.BLL.pdb
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\bin\Debug\net9.0\JSHOP.DAL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\bin\Debug\net9.0\JSHOP.DAL.pdb
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.csproj.AssemblyReference.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.AssemblyInfoInputs.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.AssemblyInfo.cs
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.csproj.CoreCompileInputs.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.sourcelink.json
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.csproj.Up2Date
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\refint\JSHOP.BLL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\JSHOP.BLL.pdb
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.BLL\obj\Debug\net9.0\ref\JSHOP.BLL.dll
