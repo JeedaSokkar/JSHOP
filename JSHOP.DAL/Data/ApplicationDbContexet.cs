@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JSHOP.DAL
+namespace JSHOP.DAL.Data
 {
-   public  class ApplicationDbContexet:DbContext
+    public class ApplicationDbContexet:DbContext
     {
-        public ApplicationDbContexet(DbContextOptions<ApplicationDbContexet> options) : base(options)
+        public ApplicationDbContexet (DbContextOptions<ApplicationDbContexet> options) : base(options)
         {
+
         }
     }
 }
