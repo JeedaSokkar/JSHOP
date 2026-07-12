@@ -73,3 +73,8 @@ C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\refint\JSHOP
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\JSHOP.PL.pdb
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\JSHOP.PL.genruntimeconfig.cache
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\ref\JSHOP.PL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\JSHOP.PL.Resources.SharedResources.resources
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\JSHOP.PL.Resources.SharedResources.ar.resources
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\JSHOP.PL.csproj.GenerateResource.cache
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\bin\Debug\net9.0\ar\JSHOP.PL.resources.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.PL\obj\Debug\net9.0\ar\JSHOP.PL.resources.dll

@@ -12,6 +12,11 @@
         },
         "runtime": {
           "JSHOP.PL.dll": {}
+        },
+        "resources": {
+          "ar/JSHOP.PL.resources.dll": {
+            "locale": "ar"
+          }
         }
       },
       "Azure.Core/1.38.0": {

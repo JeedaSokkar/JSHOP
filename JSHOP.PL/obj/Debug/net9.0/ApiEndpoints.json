@@ -3,7 +3,7 @@
     "ContainingType": "JSHOP.PL.Controllers.CategoriesController",
     "Method": "Index",
     "RelativePath": "api/Categories",
-    "HttpMethod": "",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
