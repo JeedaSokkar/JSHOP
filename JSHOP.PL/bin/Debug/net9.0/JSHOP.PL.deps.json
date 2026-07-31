@@ -9,7 +9,6 @@
       "JSHOP.PL/1.0.0": {
         "dependencies": {
           "JSHOP.BLL": "1.0.0",
-          "Mapster": "10.0.9",
           "Microsoft.EntityFrameworkCore.Design": "9.0.4"
         },
         "runtime": {
@@ -56,22 +55,22 @@
           }
         }
       },
-      "Mapster/10.0.9": {
+      "Mapster/10.0.11": {
         "dependencies": {
-          "Mapster.Core": "10.0.9"
+          "Mapster.Core": "10.0.11"
         },
         "runtime": {
           "lib/net9.0/Mapster.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.9.0"
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.11.0"
           }
         }
       },
-      "Mapster.Core/10.0.9": {
+      "Mapster.Core/10.0.11": {
         "runtime": {
           "lib/netstandard2.0/Mapster.Core.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.9.0"
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.11.0"
           }
         }
       },
@@ -931,6 +930,7 @@
       },
       "JSHOP.DAL/1.0.0": {
         "dependencies": {
+          "Mapster": "10.0.11",
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
         },
@@ -970,19 +970,19 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "Mapster/10.0.9": {
+    "Mapster/10.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UQW0Fquj9czyZHtHq08OaceEvgXhNOY8n5Ezc8BALU6//MFLmM2xPW3mCNzcvrqpMNwvMhEy7MHlRSkkbfpMeQ==",
-      "path": "mapster/10.0.9",
-      "hashPath": "mapster.10.0.9.nupkg.sha512"
+      "sha512": "sha512-MesrjeIg4lyaxJKVFHysc1GH4TooIuuY/RJRCgBPoFwDD3D1tngF362cKBkxhxR/8EhpfMfGLeU4nzCEz6hPaQ==",
+      "path": "mapster/10.0.11",
+      "hashPath": "mapster.10.0.11.nupkg.sha512"
     },
-    "Mapster.Core/10.0.9": {
+    "Mapster.Core/10.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-v6/hzOlSyCzlwize5PbRtiBCuWDjUEeH3S2pYXa+B7gD+HPn+6kTavCfjwA7olhOq78ufMw5bGOXhwCcJOZ+sQ==",
-      "path": "mapster.core/10.0.9",
-      "hashPath": "mapster.core.10.0.9.nupkg.sha512"
+      "sha512": "sha512-vpChY4hsk+CvIR3AFN/uQJkkP6gwYSUZFnuqgWBiTTbThbFEnB6chP7QUoSWZBcuPAnOjol09Ev7F1PVwECAIg==",
+      "path": "mapster.core/10.0.11",
+      "hashPath": "mapster.core.10.0.11.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
       "type": "package",

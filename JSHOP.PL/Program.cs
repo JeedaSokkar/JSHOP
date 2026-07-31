@@ -1,6 +1,8 @@
 
+using JSHOP.BLL.Services;
 using JSHOP.DAL;
 using JSHOP.DAL.Data;
+using JSHOP.DAL.Repository;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -39,7 +41,8 @@ namespace JSHOP.PL
                 options.RequestCultureProviders.Add(new AcceptLanguageHeaderRequestCultureProvider());
             }); 
             builder.Services.AddControllers();
-
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
             var app = builder.Build();
 
 

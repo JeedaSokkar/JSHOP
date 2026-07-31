@@ -41,6 +41,25 @@
           }
         }
       },
+      "Mapster/10.0.11": {
+        "dependencies": {
+          "Mapster.Core": "10.0.11"
+        },
+        "runtime": {
+          "lib/net9.0/Mapster.dll": {
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.11.0"
+          }
+        }
+      },
+      "Mapster.Core/10.0.11": {
+        "runtime": {
+          "lib/netstandard2.0/Mapster.Core.dll": {
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.11.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -502,6 +521,7 @@
       },
       "JSHOP.DAL/1.0.0": {
         "dependencies": {
+          "Mapster": "10.0.11",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
         },
@@ -533,6 +553,20 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
+    },
+    "Mapster/10.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MesrjeIg4lyaxJKVFHysc1GH4TooIuuY/RJRCgBPoFwDD3D1tngF362cKBkxhxR/8EhpfMfGLeU4nzCEz6hPaQ==",
+      "path": "mapster/10.0.11",
+      "hashPath": "mapster.10.0.11.nupkg.sha512"
+    },
+    "Mapster.Core/10.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vpChY4hsk+CvIR3AFN/uQJkkP6gwYSUZFnuqgWBiTTbThbFEnB6chP7QUoSWZBcuPAnOjol09Ev7F1PVwECAIg==",
+      "path": "mapster.core/10.0.11",
+      "hashPath": "mapster.core.10.0.11.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",

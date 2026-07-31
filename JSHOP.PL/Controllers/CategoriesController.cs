@@ -1,4 +1,5 @@
-﻿using JSHOP.DAL.Data;
+﻿using JSHOP.BLL.Services;
+using JSHOP.DAL.Data;
 using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
 using JSHOP.DAL.Models;
@@ -15,28 +16,27 @@ namespace JSHOP.PL.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-       private readonly ApplicationDbContexet _context;
+       
         private readonly IStringLocalizer<SharedResources> _localizer;
-        public CategoriesController(ApplicationDbContexet context, IStringLocalizer<SharedResources> localizer)
+        private readonly ICategoryService _categoryService;
+        public CategoriesController( IStringLocalizer<SharedResources> localizer, ICategoryService categoryService)
         {
-            _context = context;
+           
             _localizer = localizer;
+            _categoryService = categoryService;
         }
         [HttpGet("")]
-        public IActionResult Index()
+        public async Task< IActionResult> Index()
         {
-            var categories = _context.Categories.Include(c => c.Translations).ToList();
-            var response=categories.Adapt<List<CategoryResponse>>();
-            return Ok(new { _localizer["success"].Value,response });
+            var categories= await _categoryService.GetAllCategories();
+            return Ok(new { _localizer["success"].Value,categories});
         }
         [HttpPost("")]
        
-        public IActionResult Index(CategoryRequest request)
+        public async Task< IActionResult> Index(CategoryRequest request)
         {
-            var category = request.Adapt<Category>();
-            _context.Add(category);
-            _context.SaveChanges();
-            return Ok();
+            var response = await _categoryService.CreateCategory(request);
+            return Ok(_localizer["success"].Value);
         }
     }
 }

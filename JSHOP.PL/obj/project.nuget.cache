@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "HBoj/x+/ZPE=",
+  "dgSpecHash": "IVJLWOAj06Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\jeeda\\OneDrive\\Desktop\\Api\\JSHOP\\JSHOP.PL\\JSHOP.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jeeda\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\jeeda\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\jeeda\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\jeeda\\.nuget\\packages\\mapster\\10.0.9\\mapster.10.0.9.nupkg.sha512",
-    "C:\\Users\\jeeda\\.nuget\\packages\\mapster.core\\10.0.9\\mapster.core.10.0.9.nupkg.sha512",
+    "C:\\Users\\jeeda\\.nuget\\packages\\mapster\\10.0.11\\mapster.10.0.11.nupkg.sha512",
+    "C:\\Users\\jeeda\\.nuget\\packages\\mapster.core\\10.0.11\\mapster.core.10.0.11.nupkg.sha512",
     "C:\\Users\\jeeda\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\jeeda\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
     "C:\\Users\\jeeda\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
