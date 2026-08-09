@@ -19,6 +19,9 @@ namespace JSHOP.BLL.Services
         {
             _categoryRepository = categoryRepository;
         }
+
+    
+
         async Task<CategoryResponse> ICategoryService.CreateCategory(CategoryRequest request)
         {
             var category = request.Adapt<Category>();
@@ -37,8 +40,16 @@ namespace JSHOP.BLL.Services
             var category = await _categoryRepository.GetOne(filter, new string[] { nameof(Category.Translations) });
             return category.Adapt<CategoryResponse>();
         }
-        
-           
-        
+        public async Task<bool> DeleteCategort(int id)
+        {
+           var category=await _categoryRepository.GetOne(c => c.Id == id);
+            if (category == null)
+            {
+                return false;
+            }
+            return await _categoryRepository.DeleteAsync(category);
+        }
+
+
     }
 }

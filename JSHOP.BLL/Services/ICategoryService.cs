@@ -15,5 +15,6 @@ namespace JSHOP.BLL.Services
         Task<List<CategoryResponse>> GetAllCategories();
         Task<CategoryResponse> CreateCategory(CategoryRequest request);
         Task<CategoryResponse> GetCategory(Expression<Func<Category, bool>> filter);
+        Task<bool> DeleteCategort(int id);
     }
 }

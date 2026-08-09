@@ -45,5 +45,16 @@ namespace JSHOP.PL.Controllers
             var category = await _categoryService.GetCategory(c=>c.Id == id);
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _categoryService.DeleteCategort(id);
+            if (!result)
+            {
+                return BadRequest();
+            }
+            return Ok(_localizer["success"].Value);
+        }
     }
 }
