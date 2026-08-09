@@ -9,7 +9,7 @@ namespace JSHOP.DAL.Repository
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<List<T>> GetAllAsync();
+        Task<List<T>> GetAllAsync(string[]? includes = null);
         Task<T> CreateAsync(T entity);
 
     }

@@ -1,5 +1,6 @@
 ﻿using JSHOP.DAL.Data;
 using JSHOP.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,18 @@ namespace JSHOP.DAL.Repository
             return entity;
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync(string[] ? includes=null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = _context.Set<T>();
+
+            if(includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return await query.ToListAsync();
         }
     }
 }

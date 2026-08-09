@@ -27,7 +27,8 @@ namespace JSHOP.BLL.Services
 
         async Task<List<CategoryResponse>> ICategoryService.GetAllCategories()
         {
-            var categories = await _categoryRepository.GetAllAsync();
+            var categories = await _categoryRepository.GetAllAsync(new string[] { nameof(Category.Translations)
+            });
             return categories.Adapt<List<CategoryResponse>>();
         }
     }
