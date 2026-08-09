@@ -38,5 +38,12 @@ namespace JSHOP.PL.Controllers
             var response = await _categoryService.CreateCategory(request);
             return Ok(_localizer["success"].Value);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var category = await _categoryService.GetCategory(c=>c.Id == id);
+            return Ok();
+        }
     }
 }

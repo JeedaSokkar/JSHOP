@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,6 +37,20 @@ namespace JSHOP.DAL.Repository
                 }
             }
             return await query.ToListAsync();
+        }
+
+        public async Task<T> GetOne(Expression<Func<T, bool>> filter, string[]? includes = null)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if(includes != null)
+            {
+                foreach(var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return await query.FirstOrDefaultAsync(filter);
         }
     }
 }
