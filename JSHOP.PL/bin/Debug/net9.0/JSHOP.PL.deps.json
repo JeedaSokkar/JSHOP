@@ -74,6 +74,17 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.4"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52903"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -931,6 +942,7 @@
       "JSHOP.DAL/1.0.0": {
         "dependencies": {
           "Mapster": "10.0.11",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
         },
@@ -983,6 +995,13 @@
       "sha512": "sha512-vpChY4hsk+CvIR3AFN/uQJkkP6gwYSUZFnuqgWBiTTbThbFEnB6chP7QUoSWZBcuPAnOjol09Ev7F1PVwECAIg==",
       "path": "mapster.core/10.0.11",
       "hashPath": "mapster.core.10.0.11.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fwQkBQGaiRKDQWBc7PXxDiDXtsUsRPL88Jp0CqjqoDhd9p5uHSyuv6g3ALq2EbCvKcWk/7pOKsJiDomPvp/ptA==",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/9.0.0",
+      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.9.0.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
       "type": "package",

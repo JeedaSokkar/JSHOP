@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "JSHOP.PL.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "JSHOP.DAL.Dto.Request.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "JSHOP.PL.Controllers.CategoriesController",
     "Method": "Index",
     "RelativePath": "api/Categories",

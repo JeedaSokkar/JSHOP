@@ -1,4 +1,5 @@
 ﻿using JSHOP.DAL.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JSHOP.DAL.Data
 {
-    public class ApplicationDbContexet:DbContext
+    public class ApplicationDbContexet:IdentityDbContext<ApplicationUser>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryTranslation> CategoryTranslations { get; set; }

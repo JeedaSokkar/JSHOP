@@ -2,7 +2,9 @@
 using JSHOP.BLL.Services;
 using JSHOP.DAL;
 using JSHOP.DAL.Data;
+using JSHOP.DAL.Models;
 using JSHOP.DAL.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -43,6 +45,11 @@ namespace JSHOP.PL
             builder.Services.AddControllers();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContexet>()
+                .AddDefaultTokenProviders();
+            builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
             var app = builder.Build();
 
 
