@@ -13,3 +13,4 @@ C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\refint\JSHO
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.pdb
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.genruntimeconfig.cache
 C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\ref\JSHOP.DAL.dll
+C:\Users\jeeda\OneDrive\Desktop\Api\JSHOP\JSHOP.DAL\obj\Debug\net9.0\JSHOP.DAL.csproj.Up2Date

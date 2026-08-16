@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JSHOP.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+066ffd3da31827b0b2a7f290fb31ca42799857b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b21d9e05afbc15604b58a90f9818c9a0297e6632")]
 [assembly: System.Reflection.AssemblyProductAttribute("JSHOP.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JSHOP.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

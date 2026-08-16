@@ -4,6 +4,7 @@ using JSHOP.DAL;
 using JSHOP.DAL.Data;
 using JSHOP.DAL.Models;
 using JSHOP.DAL.Repository;
+using JSHOP.PL.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -14,15 +15,17 @@ namespace JSHOP.PL
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
 
-            builder.Services.AddDbContext <ApplicationDbContexet>(options =>
+            builder.Services.AddDbContext<ApplicationDbContexet>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefalutConnection"));
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                );
             });
 
             builder.Services.AddLocalization(options => options.ResourcesPath = "");
@@ -49,7 +52,7 @@ namespace JSHOP.PL
                 .AddEntityFrameworkStores<ApplicationDbContexet>()
                 .AddDefaultTokenProviders();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-
+            builder.Services.AddScoped<ISeedData, RoleSeedData>();
             var app = builder.Build();
 
 
@@ -65,9 +68,17 @@ namespace JSHOP.PL
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var seeders = services.GetServices<ISeedData>();
+                foreach(var seeder in seeders)
+                {
+                    await seeder.DataSeed();
+                }
+            }
 
-
-            app.MapControllers();
+                app.MapControllers();
 
             app.Run();
         }
