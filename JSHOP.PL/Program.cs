@@ -1,4 +1,5 @@
 
+using JSHOP.BLL.Common;
 using JSHOP.BLL.Services;
 using JSHOP.DAL;
 using JSHOP.DAL.Data;
@@ -53,6 +54,9 @@ namespace JSHOP.PL
                 .AddDefaultTokenProviders();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
             builder.Services.AddScoped<ISeedData, RoleSeedData>();
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+
             var app = builder.Build();
 
 

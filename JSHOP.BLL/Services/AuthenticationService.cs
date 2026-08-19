@@ -1,4 +1,5 @@
-﻿using JSHOP.DAL.Dto.Request;
+﻿using JSHOP.BLL.Common;
+using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
 using JSHOP.DAL.Models;
 using Mapster;
@@ -14,9 +15,12 @@ namespace JSHOP.BLL.Services
    public class AuthenticationService : IAuthenticationService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        public AuthenticationService(UserManager<ApplicationUser> userManager)
+        private readonly IEmailSender _emailSender;
+
+        public AuthenticationService(UserManager<ApplicationUser> userManager, IEmailSender emailSender   )
         {
          _userManager = userManager;
+            _emailSender = emailSender;
         }
 
      
@@ -33,6 +37,11 @@ namespace JSHOP.BLL.Services
                     Message = string.Join(", ", errors)
                 };
             }
+
+            var emailUrl=$"https://localhost:7042/api/Account/confirmEmail?email={request.Email}";
+            await _emailSender.SendEmailAsync(request.Email, "Confirm Email", $"Please confirm your email by clicking this link: {emailUrl}");
+
+
             return new RegisterResponse()
             {
                 Message = "User registered successfully."
