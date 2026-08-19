@@ -22,5 +22,11 @@ namespace JSHOP.PL.Controllers
             var result=await _authenticationService.RegisterAsync(request);
             return Ok(result);
         }
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(LoginRequest request)
+        {
+            var result = await _authenticationService.LoginAsync(request);
+            return Ok(result);
+        }
     }
 }

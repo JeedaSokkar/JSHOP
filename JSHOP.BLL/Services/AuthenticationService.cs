@@ -13,17 +13,17 @@ namespace JSHOP.BLL.Services
 {
    public class AuthenticationService : IAuthenticationService
     {
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         public AuthenticationService(UserManager<ApplicationUser> userManager)
         {
-            this.userManager = userManager;
+         _userManager = userManager;
         }
-        
-        
-public async  Task<RegisterResponse> RegisterAsync(RegisterRequest request)
+
+     
+        public async  Task<RegisterResponse> RegisterAsync(RegisterRequest request)
         {
             var user=request.Adapt<ApplicationUser>();
-             var result = await userManager.CreateAsync(user, request.Password);
+             var result = await _userManager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
             {
                 var errors = result.Errors.Select(e => e.Description).ToList();
@@ -38,5 +38,30 @@ public async  Task<RegisterResponse> RegisterAsync(RegisterRequest request)
                 Message = "User registered successfully."
             };
         }
+
+        public async Task<LoginResponse> LoginAsync(LoginRequest request)
+        {
+           var user=await _userManager.FindByEmailAsync(request.Email);
+            if (user is null)
+            {
+                return new LoginResponse
+                {
+                    Message = "Invalid email"
+                };
+            }
+            var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
+            if (!isPasswordValid)
+            {
+                return new LoginResponse
+                {
+                    Message = "Invalid  password."
+                };
+            }
+            return new LoginResponse
+            {
+                Message = "Login successful."
+            };
+        }
+
     }
 }
