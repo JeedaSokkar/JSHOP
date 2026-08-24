@@ -37,8 +37,9 @@ namespace JSHOP.BLL.Services
                     Message = string.Join(", ", errors)
                 };
             }
-
-            var emailUrl=$"https://localhost:7042/api/Account/confirmEmail?email={request.Email}";
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            token = Uri.EscapeDataString(token);
+            var emailUrl=$"https://localhost:7042/api/Account/confirmEmail?token={token}&userId={user.Id}";
             await _emailSender.SendEmailAsync(request.Email, "Confirm Email", $"Please confirm your email by clicking this link: {emailUrl}");
 
 
@@ -72,5 +73,21 @@ namespace JSHOP.BLL.Services
             };
         }
 
+        public async Task<bool> ConfirmEmail(ConfirmEmailRequest request)
+        {
+            var user =await _userManager.FindByIdAsync(request.UserId);
+            if(user is null)
+            {
+                return false;
+            }
+            request.Token=Uri.UnescapeDataString(request.Token);
+
+            var result = await _userManager.ConfirmEmailAsync(user, request.Token);
+            if(!result.Succeeded)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
