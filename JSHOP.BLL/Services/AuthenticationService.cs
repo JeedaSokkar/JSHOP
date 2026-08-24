@@ -42,8 +42,53 @@ namespace JSHOP.BLL.Services
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             token = Uri.EscapeDataString(token);
             var emailUrl=$"https://localhost:7042/api/Account/confirmEmail?token={token}&userId={user.Id}";
-            await _emailSender.SendEmailAsync(request.Email, "Confirm Email", $"Please confirm your email by clicking this link: {emailUrl}");
 
+            var emailBody = $@"
+<!DOCTYPE html>
+<html>
+<body style='font-family: Arial, sans-serif; background-color: #f4f6f8; padding: 40px;'>
+
+    <div style='max-width: 600px; margin: auto; background: white; 
+                padding: 40px; border-radius: 12px; text-align: center;'>
+
+        <h2 style='color: #1B5E3B;'>
+            Confirm Your Email
+        </h2>
+
+        <p style='color: #555; font-size: 16px;'>
+            Thank you for creating an account with us.
+            Please confirm your email address to activate your account.
+        </p>
+
+        <a href='{emailUrl}'
+           style='display: inline-block;
+                  background-color: #1B5E3B;
+                  color: white;
+                  padding: 14px 30px;
+                  text-decoration: none;
+                  border-radius: 6px;
+                  font-weight: bold;'>
+            Confirm Email
+        </a>
+<!--
+        <p style='margin-top: 30px; color: #888; font-size: 13px;'>
+            If the button doesn't work, copy this link into your browser:
+        </p>
+
+        <p style='word-break: break-all; color: #1B5E3B; font-size: 12px;'>
+            {emailUrl}
+        </p>
+
+    </div>
+-->
+</body>
+</html>";
+
+            await _emailSender.SendEmailAsync(
+                request.Email,
+                "Confirm Your Email",
+                emailBody
+            );
 
             return new RegisterResponse()
             {
