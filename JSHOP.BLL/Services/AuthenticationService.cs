@@ -61,6 +61,13 @@ namespace JSHOP.BLL.Services
                     Message = "Invalid email"
                 };
             }
+            if(! await _userManager.IsEmailConfirmedAsync(user))
+            {
+                return new LoginResponse
+                {
+                    Message = "Email not confirmed."
+                };
+            }
             var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!isPasswordValid)
             {

@@ -49,7 +49,9 @@ namespace JSHOP.PL
             builder.Services.AddControllers();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
+                options=>options.User.RequireUniqueEmail = true
+                )
                 .AddEntityFrameworkStores<ApplicationDbContexet>()
                 .AddDefaultTokenProviders();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
