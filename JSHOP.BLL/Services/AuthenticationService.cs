@@ -30,12 +30,14 @@ namespace JSHOP.BLL.Services
              var result = await _userManager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
             {
-                var errors = result.Errors.Select(e => e.Description).ToList();
+               
 
                 return new RegisterResponse
                 {
-                    Message = string.Join(", ", errors)
+                    Message = "Error",
+                    Errors = result.Errors.Select(e => e.Description).ToList()
                 };
+
             }
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             token = Uri.EscapeDataString(token);
