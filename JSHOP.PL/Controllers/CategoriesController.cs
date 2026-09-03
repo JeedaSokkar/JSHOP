@@ -5,6 +5,7 @@ using JSHOP.DAL.Dto.Response;
 using JSHOP.DAL.Models;
 using JSHOP.PL.Resources;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace JSHOP.PL.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
        

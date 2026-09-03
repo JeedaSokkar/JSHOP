@@ -6,11 +6,14 @@ using JSHOP.DAL.Data;
 using JSHOP.DAL.Models;
 using JSHOP.DAL.Repository;
 using JSHOP.PL.Utils;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
+using System.Text;
 
 namespace JSHOP.PL
 {
@@ -46,7 +49,12 @@ namespace JSHOP.PL
                 options.RequestCultureProviders.Clear();
                 options.RequestCultureProviders.Add(new AcceptLanguageHeaderRequestCultureProvider());
             }); 
+
+  
+            builder.Services.AddAuthorization();
+
             builder.Services.AddControllers();
+      
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
@@ -54,6 +62,27 @@ namespace JSHOP.PL
                 )
                 .AddEntityFrameworkStores<ApplicationDbContexet>()
                 .AddDefaultTokenProviders();
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["ApiSettings:Issuer"],
+                    ValidAudience = builder.Configuration["ApiSettings:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["ApiSettings:SecretKey"]))
+
+                };
+            });
+
+
+
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
             builder.Services.AddScoped<ISeedData, RoleSeedData>();
             builder.Services.AddTransient<IEmailSender, EmailSender>();
@@ -72,7 +101,7 @@ namespace JSHOP.PL
           
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             using (var scope = app.Services.CreateScope())
             {
