@@ -1,19 +1,5 @@
-
-using JSHOP.BLL.Common;
-using JSHOP.BLL.Services;
-using JSHOP.DAL;
-using JSHOP.DAL.Data;
-using JSHOP.DAL.Models;
-using JSHOP.DAL.Repository;
-using JSHOP.PL.Utils;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.EntityFrameworkCore;
+using JSHOP.PL.Extensions;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.Globalization;
-using System.Text;
 
 namespace JSHOP.PL
 {
@@ -23,97 +9,27 @@ namespace JSHOP.PL
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddDbContext<ApplicationDbContexet>(options =>
-            {
-                options.UseSqlServer(
-                    builder.Configuration.GetConnectionString("DefaultConnection")
-                );
-            });
-
-            builder.Services.AddLocalization(options => options.ResourcesPath = "");
-
-            const string defaultCulture = "en";
-
-            var supportedCultures = new[]
-            {
-                 new CultureInfo(defaultCulture),
-                 new CultureInfo("ar")
-             };
-
-            builder.Services.Configure<RequestLocalizationOptions>(options => {
-                options.DefaultRequestCulture = new RequestCulture(defaultCulture);
-                options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;
-                options.RequestCultureProviders.Clear();
-                options.RequestCultureProviders.Add(new AcceptLanguageHeaderRequestCultureProvider());
-            }); 
-
-  
-            builder.Services.AddAuthorization();
-
+            // Add services to the container
             builder.Services.AddControllers();
-      
-            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-            builder.Services.AddScoped<ICategoryService, CategoryService>();
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
-                options=>options.User.RequireUniqueEmail = true
-                )
-                .AddEntityFrameworkStores<ApplicationDbContexet>()
-                .AddDefaultTokenProviders();
-            builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = builder.Configuration["ApiSettings:Issuer"],
-                    ValidAudience = builder.Configuration["ApiSettings:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["ApiSettings:SecretKey"]))
-
-                };
-            });
-
-
-
-            builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-            builder.Services.AddScoped<ISeedData, RoleSeedData>();
-            builder.Services.AddTransient<IEmailSender, EmailSender>();
-
+            builder.Services.AddAuthorization();
+            builder.Services.AddApplicationServices(builder.Configuration);
 
             var app = builder.Build();
 
-
-            app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-           
-
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-
-           
-            // Configure the HTTP request pipeline.
-          
-
+            // Configure the HTTP request pipeline
             app.UseHttpsRedirection();
+
+            app.UseRequestLocalization(
+                app.Services
+                    .GetRequiredService<IOptions<RequestLocalizationOptions>>()
+                    .Value);
+
             app.UseAuthentication();
             app.UseAuthorization();
-            using (var scope = app.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var seeders = services.GetServices<ISeedData>();
-                foreach(var seeder in seeders)
-                {
-                    await seeder.DataSeed();
-                }
-            }
 
-                app.MapControllers();
+            await app.SeedDataBaseAsync();
+
+            app.MapControllers();
 
             app.Run();
         }
