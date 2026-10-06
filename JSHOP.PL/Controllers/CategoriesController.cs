@@ -37,6 +37,7 @@ namespace JSHOP.PL.Controllers
        
         public async Task< IActionResult> Index(CategoryRequest request)
         {
+
             var response = await _categoryService.CreateCategory(request);
             return Ok(_localizer["success"].Value);
         }
