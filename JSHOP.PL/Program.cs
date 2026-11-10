@@ -1,3 +1,4 @@
+using JSHOP.BLL.Mapping;
 using JSHOP.PL.Extensions;
 using Microsoft.Extensions.Options;
 
@@ -8,7 +9,7 @@ namespace JSHOP.PL
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            MapsterConfig.RegisterMappings();
             // Add services to the container
             builder.Services.AddControllers();
             builder.Services.AddAuthorization();

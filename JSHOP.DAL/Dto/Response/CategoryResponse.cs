@@ -8,6 +8,6 @@ namespace JSHOP.DAL.Dto.Response
 {
     public class CategoryResponse
     {
-        public List<CategoryTranslationResponse> Translations { get; set; }
+        public string Name { get; set; }
     }
 }
