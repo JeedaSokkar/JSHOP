@@ -10,9 +10,15 @@ namespace JSHOP.DAL.Data
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryTranslation> CategoryTranslations { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductTranslation> ProductTranslations    { get; set; }
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContexet).Assembly);
+        }
         public ApplicationDbContexet (DbContextOptions<ApplicationDbContexet> options, IHttpContextAccessor httpContextAccessor) : base(options)
         {
             _httpContextAccessor = httpContextAccessor;
