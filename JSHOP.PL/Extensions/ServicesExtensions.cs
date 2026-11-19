@@ -1,5 +1,7 @@
 ﻿using JSHOP.BLL.Common;
 using JSHOP.BLL.Services;
+using JSHOP.BLL.Services.classes;
+using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Repository;
 using JSHOP.PL.Utils;
 

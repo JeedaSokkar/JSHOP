@@ -1,4 +1,5 @@
 ﻿using JSHOP.BLL.Common;
+using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
 using JSHOP.DAL.Models;

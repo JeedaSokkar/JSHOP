@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JSHOP.BLL.Services
+namespace JSHOP.BLL.Services.Interfaces
 {
     public interface ICategoryService
     {

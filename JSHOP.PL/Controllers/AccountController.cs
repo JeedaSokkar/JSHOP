@@ -1,4 +1,4 @@
-﻿using JSHOP.BLL.Services;
+﻿using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Dto.Request;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
