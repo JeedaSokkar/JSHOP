@@ -1,4 +1,5 @@
-﻿using JSHOP.DAL.Dto.Request;
+﻿using JSHOP.BLL.Services.Interfaces;
+using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
 using JSHOP.DAL.Models;
 using JSHOP.DAL.Repository;
@@ -10,7 +11,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JSHOP.BLL.Services
+namespace JSHOP.BLL.Services.classes
 {
     public class CategoryService : ICategoryService
     {

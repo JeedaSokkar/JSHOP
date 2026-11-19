@@ -19,4 +19,8 @@
     <ProjectReference Include="..\JSHOP.BLL\JSHOP.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+
 </Project>

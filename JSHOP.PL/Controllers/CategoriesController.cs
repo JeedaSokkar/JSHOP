@@ -1,4 +1,4 @@
-﻿using JSHOP.BLL.Services;
+﻿using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Data;
 using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
