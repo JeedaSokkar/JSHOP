@@ -1,14 +1,9 @@
-﻿using JSHOP.BLL.Services.Interfaces;
-using JSHOP.DAL.Data;
+﻿
+using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Dto.Request;
-using JSHOP.DAL.Dto.Response;
-using JSHOP.DAL.Models;
 using JSHOP.PL.Resources;
-using Mapster;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
 namespace JSHOP.PL.Controllers
@@ -18,46 +13,100 @@ namespace JSHOP.PL.Controllers
     [Authorize]
     public class CategoriesController : ControllerBase
     {
-       
         private readonly IStringLocalizer<SharedResources> _localizer;
         private readonly ICategoryService _categoryService;
-        public CategoriesController( IStringLocalizer<SharedResources> localizer, ICategoryService categoryService)
+
+        public CategoriesController(
+            IStringLocalizer<SharedResources> localizer,
+            ICategoryService categoryService)
         {
-           
             _localizer = localizer;
             _categoryService = categoryService;
         }
-        [HttpGet("")]
-        public async Task< IActionResult> Index()
-        {
-            var categories= await _categoryService.GetAllCategories();
-            return Ok(new { _localizer["success"].Value,categories});
-        }
-        [HttpPost("")]
-       
-        public async Task< IActionResult> Index(CategoryRequest request)
-        {
 
-            var response = await _categoryService.CreateCategory(request);
-            return Ok(_localizer["success"].Value);
+        // GET: api/Categories
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _categoryService.GetAllCategories();
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(new
+                {
+                    message = result.Error?.Message
+                });
+            }
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value,
+                data = result.Data
+            });
         }
 
+        // POST: api/Categories
+        [HttpPost]
+        public async Task<IActionResult> Create(CategoryRequest request)
+        {
+            var result = await _categoryService.CreateCategory(request);
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(new
+                {
+                    message = result.Error?.Message
+                });
+            }
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value,
+                data = result.Data
+            });
+        }
+
+        // GET: api/Categories/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var category = await _categoryService.GetCategory(c=>c.Id == id);
-            return Ok();
+            var result = await _categoryService.GetCategory(
+                category => category.Id == id
+            );
+
+            if (!result.IsSuccess)
+            {
+                return NotFound(new
+                {
+                    message = result.Error?.Message
+                });
+            }
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value,
+                data = result.Data
+            });
         }
 
+        // DELETE: api/Categories/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _categoryService.DeleteCategort(id);
-            if (!result)
+            var result = await _categoryService.DeleteCategory(id);
+
+            if (!result.IsSuccess)
             {
-                return BadRequest();
+                return BadRequest(new
+                {
+                    message = result.Error?.Message
+                });
             }
-            return Ok(_localizer["success"].Value);
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value
+            });
         }
     }
 }

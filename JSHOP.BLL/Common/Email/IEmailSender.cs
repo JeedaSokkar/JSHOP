@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JSHOP.BLL.Common
+namespace JSHOP.BLL.Common.Email
 {
     public interface IEmailSender
     {

@@ -1,18 +1,16 @@
-﻿using JSHOP.DAL.Dto.Request;
+﻿
+using JSHOP.BLL.Common.Results;
+using JSHOP.DAL.Dto.Request;
 using JSHOP.DAL.Dto.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JSHOP.BLL.Services.Interfaces
 {
-   public interface IAuthenticationService
+    public interface IAuthenticationService
     {
-        Task<RegisterResponse> RegisterAsync(RegisterRequest request);
-        Task<LoginResponse> LoginAsync(LoginRequest request);
+        Task<Result> RegisterAsync(RegisterRequest request);
 
-        Task <bool> ConfirmEmail(ConfirmEmailRequest request);
+        Task<Result<LoginResponse>> LoginAsync(LoginRequest request);
+
+        Task<Result> ConfirmEmail(ConfirmEmailRequest request);
     }
 }

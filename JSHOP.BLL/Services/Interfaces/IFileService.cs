@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using JSHOP.BLL.Common.Results;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace JSHOP.BLL.Services.Interfaces
 {
     public interface IFileService
     {
-        Task<String?> UploadAsync(IFormFile file);
+        Task<Result<string>> UploadAsync(IFormFile file);
     }
 }

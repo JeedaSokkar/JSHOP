@@ -1,6 +1,8 @@
-﻿using JSHOP.BLL.Common;
+﻿using JSHOP.BLL.Common.Email;
 using JSHOP.BLL.Services;
 using JSHOP.BLL.Services.classes;
+using JSHOP.BLL.Services.Classes;
+using JSHOP.BLL.Services.Classes;
 using JSHOP.BLL.Services.Interfaces;
 using JSHOP.DAL.Repository;
 using JSHOP.PL.Utils;
@@ -25,6 +27,11 @@ namespace JSHOP.PL.Extensions
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ISeedData, RoleSeedData>();
             services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService,ProductService>();
+
+            services.AddScoped<IFileService, FileService>();
 
             return services;
         }
