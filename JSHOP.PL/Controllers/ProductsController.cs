@@ -60,5 +60,24 @@ namespace JSHOP.PL.Controllers
                 data = result.Data
             });
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var result = await _productService.GetProduct(p => p.Id == id);
+
+            if (!result.IsSuccess)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    message = result.Error?.Message
+                });
+            }
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value,
+                data = result.Data
+            });
+        }
     }
 }

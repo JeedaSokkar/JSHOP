@@ -100,7 +100,46 @@ namespace JSHOP.BLL.Services.classes
                 );
             }
         }
-        
+
+        public async Task<Result<ProductResponse>> GetProduct(
+            Expression<Func<Product, bool>> filter)
+        {
+            try
+            {
+                var product = await _productRepository.GetOne(
+                    filter,
+                    new[]
+                    {
+                nameof(Product.Translations),
+                nameof(Product.Category)
+                    }
+                );
+
+                if (product == null)
+                {
+                    return Result<ProductResponse>.Failure(
+                        new Error(
+                            "PRODUCT_NOT_FOUND",
+                            "The requested product was not found."
+                        )
+                    );
+                }
+
+                var response = product.Adapt<ProductResponse>();
+
+                return Result<ProductResponse>.Success(response);
+            }
+            catch (Exception ex)
+            {
+
+                return Result<ProductResponse>.Failure(
+                    new Error(
+                        "PRODUCT_RETRIEVAL_FAILED",
+                        "An error occurred while retrieving the product."
+                    )
+                );
+            }
+        }
 
         public Task<Result> DeleteProduct(int id)
         {
@@ -108,9 +147,5 @@ namespace JSHOP.BLL.Services.classes
         }
 
 
-        public Task<Result<ProductResponse>> GetProduct(Expression<Func<Product, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
