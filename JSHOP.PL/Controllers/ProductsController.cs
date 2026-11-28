@@ -26,7 +26,7 @@ namespace JSHOP.PL.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromForm] ProductRequest request)
         {
-         
+
             var result = await _productService.CreateProduct(request);
             if (!result.IsSuccess)
             {
@@ -67,6 +67,14 @@ namespace JSHOP.PL.Controllers
 
             if (!result.IsSuccess)
             {
+                if (result.Error?.Code == "PRODUCT_NOT_FOUND")
+                {
+                    return NotFound(new
+                    {
+                        message = result.Error.Message
+                    });
+                }
+
                 return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     message = result.Error?.Message
@@ -77,6 +85,34 @@ namespace JSHOP.PL.Controllers
             {
                 message = _localizer["success"].Value,
                 data = result.Data
+            });
+        }
+
+        // DELETE: api/Products/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _productService.DeleteProduct(id);
+
+            if (!result.IsSuccess)
+            {
+                if (result.Error?.Code == "PRODUCT_NOT_FOUND")
+                {
+                    return NotFound(new
+                    {
+                        message = result.Error.Message
+                    });
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    message = result.Error?.Message
+                });
+            }
+
+            return Ok(new
+            {
+                message = _localizer["success"].Value
             });
         }
     }
