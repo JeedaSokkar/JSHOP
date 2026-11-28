@@ -141,9 +141,47 @@ namespace JSHOP.BLL.Services.classes
             }
         }
 
-        public Task<Result> DeleteProduct(int id)
+        public async Task<Result> DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var product = await _productRepository.GetOne(
+                    p => p.Id == id
+                );
+
+                if (product == null)
+                {
+                    return Result.Failure(
+                        new Error(
+                            "PRODUCT_NOT_FOUND",
+                            "The requested product was not found."
+                        )
+                    );
+                }
+
+                var isDeleted = await _productRepository.DeleteAsync(product);
+
+                if (!isDeleted)
+                {
+                    return Result.Failure(
+                        new Error(
+                            "PRODUCT_DELETE_FAILED",
+                            "The product could not be deleted."
+                        )
+                    );
+                }
+
+                return Result.Success();
+            }
+            catch (Exception)
+            {
+                return Result.Failure(
+                    new Error(
+                        "PRODUCT_DELETE_FAILED",
+                        "An error occurred while deleting the product."
+                    )
+                );
+            }
         }
 
 
