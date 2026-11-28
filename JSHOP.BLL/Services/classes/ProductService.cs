@@ -74,6 +74,33 @@ namespace JSHOP.BLL.Services.classes
             }
         }
 
+        public async Task<Result<List<ProductResponse>>> GetAllProducts()
+        {
+            try
+            {
+                var products = await _productRepository.GetAllAsync(
+                    new string[]
+                    {
+                        nameof(Product.Translations),
+                        nameof(Product.CreatedBy),
+                        nameof(Product.Category),
+                    }
+                );
+
+                var response = products.Adapt<List<ProductResponse>>();
+
+                return Result<List<ProductResponse>>.Success(response);
+            }
+            catch (Exception)
+            {
+                return Result<List<ProductResponse>>.Failure(
+                    new Error(
+                        "PRODUCT_RETRIEVAL_FAILED",
+                        "An error occurred while retrieving products  ."
+                    )
+                );
+            }
+        }
         
 
         public Task<Result> DeleteProduct(int id)
@@ -81,10 +108,6 @@ namespace JSHOP.BLL.Services.classes
             throw new NotImplementedException();
         }
 
-        public Task<Result<List<ProductResponse>>> GetAllProducts()
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<Result<ProductResponse>> GetProduct(Expression<Func<Product, bool>> filter)
         {

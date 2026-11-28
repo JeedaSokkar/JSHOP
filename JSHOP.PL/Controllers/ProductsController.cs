@@ -41,5 +41,22 @@ namespace JSHOP.PL.Controllers
                 data = result.Data
             });
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var result = await _productService.GetAllProducts();
+            if (!result.IsSuccess)
+            {
+                return BadRequest(new
+                {
+                    message = result.Error?.Message
+                });
+            }
+            return Ok(new
+            {
+                message = _localizer["success"].Value,
+                data = result.Data
+            });
+        }
     }
 }
