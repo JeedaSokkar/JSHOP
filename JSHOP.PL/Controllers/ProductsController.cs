@@ -45,13 +45,15 @@ namespace JSHOP.PL.Controllers
         public async Task<IActionResult> GetAllProducts()
         {
             var result = await _productService.GetAllProducts();
+
             if (!result.IsSuccess)
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
                     message = result.Error?.Message
                 });
             }
+
             return Ok(new
             {
                 message = _localizer["success"].Value,

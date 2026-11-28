@@ -82,7 +82,6 @@ namespace JSHOP.BLL.Services.classes
                     new string[]
                     {
                         nameof(Product.Translations),
-                        nameof(Product.CreatedBy),
                         nameof(Product.Category),
                     }
                 );
